@@ -50,13 +50,13 @@ for partial updates.
 ### Setup
 
 1. **Clone the repository:**
-git clone https://github.com/yourusername/todo-list-api.git
+- git clone https://github.com/HoBaaMa/To-Do-List-Web-AP.git
 2. **Configure the database connection:**
 - Update the `DefaultConnection` string in `appsettings.json` with your SQL Server details.
-
 3. **Apply migrations:**
-dotnet ef database update
-4. **Run the application:**dotnet run
+- dotnet ef database update
+4. **Run the application:**
+- dotnet run
 5. **Access Swagger UI:**
 - Navigate to `https://localhost:{port}/swagger` in your browser.
 
@@ -74,18 +74,20 @@ dotnet ef database update
 | PATCH  | `/api/todo/{id}`          | Partially update a to-do item      |
 | DELETE | `/api/todo/{id}`          | Delete a to-do item                |
 
-### Example To-Do Item JSON{
+### Example To-Do Item JSON
+{
   "id": 1,
   "title": "Sample To-Do Item",
   "isCompleted": false,
-  "createdDate": "2023-10-01T12:00:00Z",
+  "createdAt": "2023-10-01T12:00:00Z",
   "completedAt": "2023-10-10T12:00:00Z"
 }
-# Response{
+# Response
+{
   "id": 1,
   "title": "Sample To-Do Item",
   "isCompleted": false,
-  "createdDate": "2023-10-01T12:00:00Z",
+  "createdAt": "2023-10-01T12:00:00Z",
   "completedAt": "2023-10-10T12:00:00Z"
 }
 - `id`, `createdAt`, and `completedAt` are managed by the API/database.
@@ -116,10 +118,26 @@ Content-Type: application/json-patch+json
   "id": 1,
   "title": "Sample To-Do Item",
   "isCompleted": true,
-  "createdDate": "2023-10-01T12:00:00Z",
-  "dueDate": "2023-10-10T12:00:00Z",
+  "createdAt": "2023-10-01T12:00:00Z",
   "completedAt": "2023-10-01T12:00:00Z"
 }
+
+---
+
+## Model
+<code>```csharp</code>
+    public class TodoItem
+    {
+        public int Id { get; set; }
+        public required string Title { get; set; }
+        public string? Description { get; set; }
+        public bool? IsCompleted { get; set; }
+        public DateTime CreatedAt { get; set; } 
+        public DateTime? CompletedAt { get; set; }
+    }
+<code>```</code>
+---
+
 ## Error Handling
 
 - Returns `400 Bad Request` for invalid input or out-of-range IDs.
@@ -151,3 +169,4 @@ You can install all required packages with these commands:
 ## License
 
 This project is licensed under the MIT License.
+

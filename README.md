@@ -55,7 +55,7 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/HoBaaMa/To-Do-List-Web-AP.git
+   git clone https://github.com/HoBaaMa/To-Do-List-Web-API.git
    ```
 
 2. **Configure the database connection:**

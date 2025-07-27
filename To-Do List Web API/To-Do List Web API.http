@@ -1,6 +1,6 @@
-@To_Do_List_Web_API_HostAddress = http://localhost:5186
+﻿@To_Do_List_Web_API_HostAddress = http://localhost:5186
 
-GET {{To_Do_List_Web_API_HostAddress}}/weatherforecast/
+GET {{To_Do_List_Web_API_HostAddress}}/api/Todo
 Accept: application/json
 
 ###

@@ -1,5 +1,4 @@
-﻿using Azure;
-using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using To_Do_List_Web_API.Models;
 using To_Do_List_Web_API.Repositories;

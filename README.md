@@ -18,6 +18,7 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 - [❗ Error Handling](#-error-handling)
 - [📦 Required NuGet Packages](#-required-nuget-packages)
   - [🚀 Quick Install All](#-quick-install-all)
+- [📈 What's New](#-whats-new)
 - [🪪 License](#-license)
 
 ---
@@ -28,6 +29,7 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 - Filter to-do items by creation date
 - Partial updates using JSON Patch
 - Entity Framework Core with SQL Server
+- Serilog-based structured logging
 
 ---
 
@@ -96,8 +98,6 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 
 ### 📄 Example To-Do Item JSON
 
-**Request:**
-
 ```json
 {
   "id": 1,
@@ -107,33 +107,10 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
   "completedAt": "2023-10-10T12:00:00Z"
 }
 ```
-
-**Response:**
-
-```json
-{
-  "id": 1,
-  "title": "Sample To-Do Item",
-  "isCompleted": false,
-  "createdAt": "2023-10-01T12:00:00Z",
-  "completedAt": "2023-10-10T12:00:00Z"
-}
-```
-
-> ℹ️ `id`, `createdAt`, and `completedAt` are managed by the API/database.
 
 ---
 
 ## 🩹 JSON Patch Example
-
-To mark a to-do item as completed:
-
-**Request:**
-
-```http
-PATCH /api/todo/1
-Content-Type: application/json-patch+json
-```
 
 ```json
 [
@@ -148,18 +125,6 @@ Content-Type: application/json-patch+json
     "value": "2023-10-01T12:00:00Z"
   }
 ]
-```
-
-**Response:**
-
-```json
-{
-  "id": 1,
-  "title": "Sample To-Do Item",
-  "isCompleted": true,
-  "createdAt": "2023-10-01T12:00:00Z",
-  "completedAt": "2023-10-01T12:00:00Z"
-}
 ```
 
 ---
@@ -189,18 +154,18 @@ public class TodoItem
 
 ## 📦 Required NuGet Packages
 
-To run and develop this project, make sure you have the following NuGet packages installed:
-
-| Package Name                              | Description                             | NuGet Command                                                |
-|-------------------------------------------|-----------------------------------------|--------------------------------------------------------------|
-| `Microsoft.EntityFrameworkCore`           | 🗄️ Entity Framework Core ORM             | `dotnet add package Microsoft.EntityFrameworkCore`           |
-| `Microsoft.EntityFrameworkCore.SqlServer` | 🛢️ SQL Server provider for EF Core       | `dotnet add package Microsoft.EntityFrameworkCore.SqlServer` |
-| `Microsoft.EntityFrameworkCore.Tools`     | 🛠️ EF Core CLI tools                     | `dotnet add package Microsoft.EntityFrameworkCore.Tools`     |
-| `Microsoft.AspNetCore.JsonPatch`          | 🩹 JSON Patch support for ASP.NET Core   | `dotnet add package Microsoft.AspNetCore.JsonPatch`          |
-| `Microsoft.AspNetCore.Mvc.NewtonsoftJson` | 🧩 Newtonsoft.Json integration           | `dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson` |
-| `Swashbuckle.AspNetCore`                  | 📖 Swagger/OpenAPI for API documentation | `dotnet add package Swashbuckle.AspNetCore`                  |
-
----
+| Package Name                              | Description                             |
+|-------------------------------------------|-----------------------------------------|
+| Microsoft.EntityFrameworkCore             | Entity Framework Core ORM               |
+| Microsoft.EntityFrameworkCore.SqlServer   | SQL Server provider for EF Core         |
+| Microsoft.EntityFrameworkCore.Tools       | EF Core CLI tools                       |
+| Microsoft.AspNetCore.JsonPatch            | JSON Patch support                      |
+| Microsoft.AspNetCore.Mvc.NewtonsoftJson   | Newtonsoft.Json support                 |
+| Swashbuckle.AspNetCore                    | Swagger / OpenAPI support               |
+| Serilog.AspNetCore                        | Serilog logging                         |
+| Serilog.Sinks.Console                     | Serilog console sink                    |
+| Serilog.Sinks.File                        | Serilog file sink                       |
+| Serilog.Settings.Configuration            | Serilog configuration                   |
 
 ### 🚀 Quick Install All
 
@@ -211,7 +176,20 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.AspNetCore.JsonPatch
 dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 dotnet add package Swashbuckle.AspNetCore
+dotnet add package Serilog.AspNetCore
+dotnet add package Serilog.Sinks.Console
+dotnet add package Serilog.Sinks.File
 ```
+
+---
+
+## 📈 What's New
+
+- ✅ **Added logging with Serilog to Todo API**
+- ✅ Enhanced `TodoController` with `ILogger` for improved logging.
+- ✅ Configured Serilog in `Program.cs` for structured logging to console and file.
+- ✅ Updated `TodoRepository` with validation checks for better error handling.
+- ✅ Installed and configured Serilog packages in `appsettings.json`.
 
 ---
 

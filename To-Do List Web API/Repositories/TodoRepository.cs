@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using To_Do_List_Web_API.Data;
 using To_Do_List_Web_API.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace To_Do_List_Web_API.Repositories
 {
@@ -16,6 +18,10 @@ namespace To_Do_List_Web_API.Repositories
         }
         public async Task<TodoItem> CreateAsync(TodoItem todoItem)
         {
+            if (todoItem.Title.IsNullOrEmpty())
+            {
+                throw new ArgumentNullException(nameof(todoItem.Title), "Title cannot be null or empty.");
+            }
             if (todoItem.IsCompleted == false)
             {
                 todoItem.CompletedAt = null;
@@ -42,11 +48,20 @@ namespace To_Do_List_Web_API.Repositories
 
         public async Task<IEnumerable<TodoItem>> GetAllAsync()
         {
+            if (_context.TodoItems == null || !_context.TodoItems.Any())
+            {
+                throw new KeyNotFoundException("Todo items not found/empty.");
+            }
             return await _context.TodoItems.ToListAsync();
         }
 
         public async Task<IEnumerable<TodoItem>> GetByDateAsync(DateTime dateTime)
         {
+            var isAnyItems = await _context.TodoItems.AnyAsync(item => item.CreatedAt.Date == dateTime.Date);
+            if (_context.TodoItems == null || !isAnyItems)
+            {
+                throw new KeyNotFoundException($"No tasks found for the date: {dateTime.ToShortDateString()}");
+            }
             var query = _context.TodoItems
                 .Where(item => item.CreatedAt.Date == dateTime.Date).ToListAsync();
             return await query;

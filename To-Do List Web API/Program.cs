@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Serilog;
 using To_Do_List_Web_API.Data;
 using To_Do_List_Web_API.Repositories;
 
@@ -15,6 +17,22 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<TodoDbContext>(o => o.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+
+// Configure Serilog
+//Log.Logger = new LoggerConfiguration()
+//    .ReadFrom.Configuration(builder.Configuration)
+//    .WriteTo.Console()
+//    .WriteTo.File("logs/todolist-.log", rollingInterval: RollingInterval.Day)
+//    .CreateLogger();
+
+builder.Host.UseSerilog((context, services, configuration) =>
+ {
+     configuration.ReadFrom.Configuration(context.Configuration);
+     configuration.ReadFrom.Services(services);
+ });
+
+// Replace the default logging provider with Serilog
+//builder.Host.UseSerilog(); // This ensures Serilog handles all logging
 
 
 var app = builder.Build();

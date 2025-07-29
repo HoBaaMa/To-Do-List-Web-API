@@ -6,13 +6,11 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 
 ## 📋 Table of Contents
 
-## 📋 Table of Contents
-
 - [✨ Features](#-features)
 - [🧰 Technologies Used](#-technologies-used)
 - [🚀 Getting Started](#-getting-started)
   - [🔧 Prerequisites](#-prerequisites)
-  - [⚙️ Setup](#-setup)
+  - [⚙️ Setup](#setup)
 - [🌐 API Endpoints](#-api-endpoints)
   - [📄 Example To-Do Item JSON](#-example-to-do-item-json)
   - [🩹 JSON Patch Example](#-json-patch-example)

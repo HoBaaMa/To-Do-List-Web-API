@@ -20,10 +20,6 @@ namespace To_Do_List_Web_API.Repositories
             {
                 throw new ArgumentNullException(nameof(todoItem.Title), "Title cannot be null or empty.");
             }
-            if (todoItem.IsCompleted == false)
-            {
-                todoItem.CompletedAt = null;
-            }
             await _context.TodoItems.AddAsync(todoItem);
             await _context.SaveChangesAsync();
             return todoItem;

@@ -84,15 +84,16 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 
 ## 🌐 API Endpoints
 
-| Method | Endpoint                | Description                        |
-|--------|-------------------------|------------------------------------|
-| GET    | `/api/todo`             | Get all to-do items                |
-| GET    | `/api/todo/{id}`        | Get a to-do item by ID             |
-| GET    | `/api/todo/date/{date}` | Get to-do items by creation date   |
-| POST   | `/api/todo`             | Create a new to-do item            |
-| PUT    | `/api/todo/{id}`        | Update an existing to-do item      |
-| PATCH  | `/api/todo/{id}`        | Partially update a to-do item      |
-| DELETE | `/api/todo/{id}`        | Delete a to-do item                |
+| 🔠 Method | 🌐 Endpoint                | 📝 Description                        |
+|----------|----------------------------|--------------------------------------|
+| 🟢 GET   | `/api/todo`                | Get all to-do items                  |
+| 🔍 GET   | `/api/todo/{id}`           | Get a to-do item by ID               |
+| 📅 GET   | `/api/todo/date/{date}`    | Get to-do items by creation date     |
+| ➕ POST  | `/api/todo`                | Create a new to-do item              |
+| ♻️ PUT   | `/api/todo/{id}`           | Update an existing to-do item        |
+| 🩹 PATCH | `/api/todo/{id}`           | Partially update a to-do item        |
+| ❌ DELETE| `/api/todo/{id}`           | Delete a to-do item                  |
+
 
 ---
 

@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using To_Do_List_Web_API.Data;
 using To_Do_List_Web_API.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace To_Do_List_Web_API.Repositories
 {
@@ -14,7 +12,7 @@ namespace To_Do_List_Web_API.Repositories
         private readonly TodoDbContext _context;
         public TodoRepository(TodoDbContext context)
         {
-            _context = context;   
+            _context = context;
         }
         public async Task<TodoItem> CreateAsync(TodoItem todoItem)
         {
@@ -98,7 +96,7 @@ namespace To_Do_List_Web_API.Repositories
             if (id <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(id), id, "ID must be greater than zero.");
-            } 
+            }
             else if (existingItem == null)
             {
                 throw new KeyNotFoundException($"Todo Item with ID: {id} not found.");

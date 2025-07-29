@@ -42,6 +42,7 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=black&style=for-the-badge)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white&style=for-the-badge)
 ![Newtonsoft.Json](https://img.shields.io/badge/Newtonsoft.Json-000000?logo=json&logoColor=white&style=for-the-badge)
+![Serilog](https://img.shields.io/badge/Logging-Serilog-blueviolet?style=for-the-badge&logo=serilog&logoColor=white)
 
 ---
 
@@ -93,7 +94,6 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 | ♻️ PUT   | `/api/todo/{id}`           | Update an existing to-do item        |
 | 🩹 PATCH | `/api/todo/{id}`           | Partially update a to-do item        |
 | ❌ DELETE| `/api/todo/{id}`           | Delete a to-do item                  |
-
 
 ---
 
@@ -155,18 +155,19 @@ public class TodoItem
 
 ## 📦 Required NuGet Packages
 
-| Package Name                              | Description                             |
-|-------------------------------------------|-----------------------------------------|
-| Microsoft.EntityFrameworkCore             | Entity Framework Core ORM               |
-| Microsoft.EntityFrameworkCore.SqlServer   | SQL Server provider for EF Core         |
-| Microsoft.EntityFrameworkCore.Tools       | EF Core CLI tools                       |
-| Microsoft.AspNetCore.JsonPatch            | JSON Patch support                      |
-| Microsoft.AspNetCore.Mvc.NewtonsoftJson   | Newtonsoft.Json support                 |
-| Swashbuckle.AspNetCore                    | Swagger / OpenAPI support               |
-| Serilog.AspNetCore                        | Serilog logging                         |
-| Serilog.Sinks.Console                     | Serilog console sink                    |
-| Serilog.Sinks.File                        | Serilog file sink                       |
-| Serilog.Settings.Configuration            | Serilog configuration                   |
+| 📦 Package Name                              | 📝 Description                             |
+|---------------------------------------------|--------------------------------------------|
+| 📂 Microsoft.EntityFrameworkCore             | Entity Framework Core ORM                  |
+| 🛢️ Microsoft.EntityFrameworkCore.SqlServer   | SQL Server provider for EF Core            |
+| 🛠️ Microsoft.EntityFrameworkCore.Tools       | EF Core CLI tools                          |
+| 🩹 Microsoft.AspNetCore.JsonPatch            | JSON Patch support                         |
+| 🧩 Microsoft.AspNetCore.Mvc.NewtonsoftJson   | Newtonsoft.Json support                    |
+| 📖 Swashbuckle.AspNetCore                    | Swagger / OpenAPI support                  |
+| 🧾 Serilog.AspNetCore                        | Serilog logging                            |
+| 📤 Serilog.Sinks.Console                     | Serilog console sink                       |
+| 📁 Serilog.Sinks.File                        | Serilog file sink                          |
+| ⚙️ Serilog.Settings.Configuration            | Serilog configuration from appsettings.json                     |
+
 
 ### 🚀 Quick Install All
 

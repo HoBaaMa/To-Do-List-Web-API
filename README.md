@@ -6,6 +6,8 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 
 ## 📋 Table of Contents
 
+## 📋 Table of Contents
+
 - [✨ Features](#-features)
 - [🧰 Technologies Used](#-technologies-used)
 - [🚀 Getting Started](#-getting-started)
@@ -19,6 +21,8 @@ A simple ASP.NET Core Web API for managing to-do items. This project demonstrate
 - [📦 Required NuGet Packages](#-required-nuget-packages)
   - [🚀 Quick Install All](#-quick-install-all)
 - [📈 What's New](#-whats-new)
+  - [🆕 Version 1.2.0 – 29 July 2025](#-version-120--29-july-2025)
+  - [✅ Version 1.1.0 – 28 July 2025](#-version-110--28-july-2025)
 - [🪪 License](#-license)
 
 ---
@@ -187,11 +191,22 @@ dotnet add package Serilog.Sinks.File
 
 ## 📈 What's New
 
+### 🆕 Version 1.2.0 – 29 July 2025
+
+- ✅ **Improved validation logic and code structure**
+  - ➕ Added `CompletedCreationDatesValidationAttribute.cs` and `CompletedStateValidationAttribute.cs` to enforce business rules between `IsCompleted` and `CompletedAt`.
+  - 🛠️ Updated `TodoItem.cs` to apply the new validation attributes and removed unnecessary usings.
+  - 🧹 Cleaned up `TodoRepository.cs` with better ID validation and cleaner code.
+  - 📝 Enhanced `README.md` with clearer API documentation.
+
+---
+
+### ✅ Version 1.1.0 – 28 July 2025
+
 - ✅ **Added logging with Serilog to Todo API**
-- ✅ Enhanced `TodoController` with `ILogger` for improved logging.
-- ✅ Configured Serilog in `Program.cs` for structured logging to console and file.
-- ✅ Updated `TodoRepository` with validation checks for better error handling.
-- ✅ Installed and configured Serilog packages in `appsettings.json`.
+  - 🔧 Configured Serilog in `Program.cs` for structured logging to console and file.
+  - 📄 Installed and configured Serilog packages in `appsettings.json`.
+  - 💬 Integrated `ILogger` into `TodoController` for consistent logging.
 
 ---
 
